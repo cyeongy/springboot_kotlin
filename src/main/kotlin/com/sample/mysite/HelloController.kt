@@ -6,13 +6,13 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 class HelloController {
-    @GetMapping("/")
-    fun hello(): String {
-        return "Hello World!"
-    }
+	@GetMapping("/")
+	fun hello(): String {
+		return "Hello World!"
+	}
 
-    @GetMapping("/{user}")
-    fun hello(@PathVariable user:String): String {
-        return "Hello $user"
-    }
+	@GetMapping("/{user}")
+	fun hello(@PathVariable user: String): String {
+		return "Hello $user"
+	}
 }
