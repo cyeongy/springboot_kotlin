@@ -21,6 +21,8 @@ spring:
     pathmatch:
       matching-strategy: ant_path_matcher
 
+  mustache:
+      suffix: .html
 logging:
   level:
     org.hibernate:
