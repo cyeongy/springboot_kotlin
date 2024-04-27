@@ -19,4 +19,3 @@ class BookController(val bookService: BookService) {
 		return bookService.save(book.toDTO())
 	}
 }
-
