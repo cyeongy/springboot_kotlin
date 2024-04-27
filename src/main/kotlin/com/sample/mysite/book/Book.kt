@@ -1,11 +1,11 @@
 package com.sample.mysite.book
 
-import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
 import jakarta.persistence.Table
+import org.jetbrains.annotations.NotNull
 
 @Entity
 @Table(name = "book")
@@ -14,10 +14,12 @@ class Book(
 	@get:GeneratedValue(strategy = GenerationType.IDENTITY)
 	var id: Long,
 
-	@get:Column(nullable = false)
-	var title: String
+	@get:NotNull
+	var title: String,
+
+	var description: String?
 ) {
 	fun toDTO(): BookDTO {
-		return BookDTO(id = this.id, title = this.title)
+		return BookDTO(id = this.id, title = this.title, description = this.description)
 	}
 }

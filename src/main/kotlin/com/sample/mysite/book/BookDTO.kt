@@ -10,15 +10,16 @@ import org.jetbrains.annotations.NotNull
 @Builder
 @Getter
 class BookDTO(
-	@NotNull
-	@Id
+	@get:NotNull
+	@get:Id
 	var id: Long,
 
-	@NotNull
-	var title: String
+	@get:NotNull
+	var title: String,
 
+	var description: String?
 ) {
 	fun toDomain(): Book {
-		return Book(id = this.id, title = this.title)
+		return Book(id = this.id, title = this.title, description = this.description)
 	}
 }
