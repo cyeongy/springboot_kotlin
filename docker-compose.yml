@@ -10,3 +10,6 @@ services:
       MARIADB_ROOT_PASSWORD: root123
 #      MARIADB_USER: test
 #      MARIADB_PASSWORD: test123
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
