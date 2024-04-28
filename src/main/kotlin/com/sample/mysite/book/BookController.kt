@@ -19,7 +19,7 @@ class BookController(val bookService: BookService) {
 	}
 
 	@PostMapping("/books")
-	fun addBook(@RequestBody book: Book): Long? {
-		return bookService.save(book.toDTO())
+	fun addBook(@RequestBody book: BookDTO): Long? {
+		return bookService.save(book)
 	}
 }
