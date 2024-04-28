@@ -9,6 +9,7 @@ class HelloController {
 
 	@GetMapping("/")
 	fun index(model: Model): String {
+		model.addAttribute("message", "this is mustache")
 		return "index"
 	}
 }
