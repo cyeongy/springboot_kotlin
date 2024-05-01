@@ -9,17 +9,25 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 class BookController(val bookService: BookService) {
 	@GetMapping("/books")
-	fun getBooks(): List<Book>? {
-		return bookService.getBooks()
+	fun getBooks(): List<BookDTO>? {
+		var bookDTOs: List<BookDTO> = bookService.getBooks().map { bookStream: Book ->
+			BookDTO(title = bookStream.title, description = bookStream.description)
+		}.toList()
+		return bookDTOs
 	}
 
 	@GetMapping("/books/{id}")
-	fun getBook(@PathVariable id: Long): Book? {
-		return bookService.getBookById(id)
+	fun getBook(@PathVariable id: Long): BookDTO? {
+		if (bookService.getBookById(id) == null) {
+			return null
+		} else {
+			return bookService.getBookById(id)!!.toDTO()
+		}
 	}
 
 	@PostMapping("/books")
 	fun addBook(@RequestBody book: BookDTO): Long? {
+		println(book)
 		return bookService.save(book)
 	}
 }

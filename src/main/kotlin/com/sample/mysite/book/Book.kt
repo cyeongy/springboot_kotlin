@@ -12,14 +12,15 @@ import org.jetbrains.annotations.NotNull
 class Book(
 	@get:Id
 	@get:GeneratedValue(strategy = GenerationType.IDENTITY)
-	var id: Long,
+	var id: Long = 0L,
 
 	@get:NotNull
 	var title: String,
 
 	var description: String?
 ) {
+
 	fun toDTO(): BookDTO {
-		return BookDTO(id = this.id, title = this.title, description = this.description)
+		return BookDTO(title = this.title, description = this.description)
 	}
 }

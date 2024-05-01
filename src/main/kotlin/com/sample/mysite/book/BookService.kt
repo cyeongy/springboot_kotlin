@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service
 @Service
 class BookService(val bookRepository: BookRepository) {
 	fun save(bookDTO: BookDTO): Long? {
-		return bookRepository.save(bookDTO.toDomain()).id
+		return bookRepository.save(bookDTO.toEntity()).id
 	}
 
 	fun getBookById(id: Long): Book? {
