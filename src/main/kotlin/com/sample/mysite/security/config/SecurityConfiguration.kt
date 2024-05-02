@@ -10,7 +10,7 @@ class SecurityConfiguration {
 	@Bean
 	fun filterChain(http: HttpSecurity): SecurityFilterChain {
 		http.authorizeHttpRequests { authorize ->
-			authorize.requestMatchers("/register", "/login").permitAll().anyRequest().authenticated()
+			authorize.requestMatchers("/register", "/login", "/**").permitAll().anyRequest().authenticated()
 		}.csrf { csrf ->
 			csrf.disable()
 		}.formLogin { form ->
